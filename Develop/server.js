@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const fs = require("fs")
    
 
 const app = express();
@@ -19,10 +20,15 @@ app.post("/api/notes", function(req, res) {
     let newNote = req.body
     noteArr.push(newNote);
     res.json(newNote);
+    console.log(newNote)
+    console.log(newNote.title)
+    console.log(newNote.text)
 });
 
 
 app.delete("/api/notes/:item", function(req, res) {
+    // console.log(req)
+    console.log(req.body)
     console.log("got a delete request.")
 })
 
